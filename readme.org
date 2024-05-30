@@ -1,0 +1,18 @@
+#+title: A Julia + SDL software to simulate reaction diffusion models
+
+Pygame was too slow, so I tried using Julia + SDL2. What a ride though !
+
+* Plan for next time
+- convert reaction diffusion space to pixels (hopefully fast)
+- implement RD time evolution
+
+* Julia + SDL2 notes
+- conversion between SDL2 names and Julia names: =SDL_CreateWindow= =>
+  =SDL2.CreateWindow=, if we defined ~const SDL2 = SimpleDirectMediaLayer~
+- use ~C_NULL~ for C NULL (of course)
+- use =ColorTypes= and =ARGB32= for colors, that's much easier
+  (automatically converts to =UInt32=)
+- to get a pointer to the data of a Julia array: the ~pointer~ method
+- sleep introduces delay in the treatment of the events. Use
+  =SDL2.Delay= instead
+
