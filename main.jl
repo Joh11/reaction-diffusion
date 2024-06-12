@@ -68,6 +68,7 @@ reaction = GrayScott()
 
 try
     @show win = SDL2.CreateWindow("Reaction diffusion", Int32(SDL2.WINDOWPOS_CENTERED()), Int32(SDL2.WINDOWPOS_CENTERED()), w, h, SDL2.WINDOW_RESIZABLE)
+    SDL2.SetWindowSize(win, Int32(800), Int32(800))
 
     @show render = SDL2.CreateRenderer(win, Int32(-1), UInt32(0))
 
