@@ -23,23 +23,6 @@ function dt(gs::GrayScott) gs.dt end
 function dx(gs::GrayScott) gs.dx end
 function D(gs::GrayScott) return [gs.Du, gs.Dv] end
 
-# function initρ(w, h)
-#     ρ = zeros(w, h, 2)
-#     r = 5
-#     ρ[w÷2-r:w÷2+r, h÷2-r:h÷2+r, 1] .= 0.7
-#     r = 10
-#     ρ[w÷2-r:w÷2+r, h÷2-r:h÷2+r, 2] .= 0.3
-#     ρ
-# end
-
-# function initρ(w, h)
-#     ρ = zeros(w, h, 2)
-#     ρ[:, :, 1] .= 1
-#     r = 5
-#     ρ[w÷2-r:w÷2+r, h÷2-r:h÷2+r, 2] .= 1
-#     ρ
-# end
-
 function initρ(w, h)
     @assert w == h
     
@@ -56,12 +39,6 @@ function initρ(w, h)
     
     ρ
 end
-
-# function initρ(w, h)
-#     ρ = zeros(w, h, 2)
-#     ρ[1:end, 1:end, 1:2] = rand(w, h, 2)
-#     ρ
-# end
 
 function diffusion(p, ρ)
     dρ = -4ρ +
@@ -128,9 +105,6 @@ end
 # logical size
 w = Int32(400)
 h = Int32(400)
-
-# this one is found to work
-# p = GrayScott(dt=1, dx=5, Du=5, Dv=5/2)
 
 p = GrayScott(dt=1, dx=5, Du=5, Dv=5/2)
 
